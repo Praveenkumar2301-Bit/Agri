@@ -31,7 +31,7 @@ export interface Category {
   name: string;
   nameTa?: string;
   slug: string;
-  icon: string;
+  icon?: string;
   children?: Category[];
 }
 
