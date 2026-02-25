@@ -1,6 +1,20 @@
-import type { Listing, MarketPrice } from '@/types';
+import type { Category, Listing, MarketPrice } from '@/types';
 
 // Local images from C:\Users\praveen\Desktop\Flamora\Agri\Images (copied to public/images)
+
+/** Pre-defined categories with explicit Category type for type safety */
+const CATEGORIES: Record<string, Category> = {
+  '1': { id: '1', name: 'Farm Produce', slug: 'farm-produce', icon: '' },
+  '2': { id: '2', name: 'Vegetables', slug: 'vegetables', icon: '' },
+  '3': { id: '3', name: 'Fruits', slug: 'fruits', icon: '' },
+  '4': { id: '4', name: 'Flowers', slug: 'flowers', icon: '' },
+  '5': { id: '5', name: 'Livestock', slug: 'livestock', icon: '' },
+  '6': { id: '6', name: 'Dairy', slug: 'dairy', icon: '' },
+  '7': { id: '7', name: 'Equipment', slug: 'equipment', icon: '' },
+  '8': { id: '8', name: 'Fertilizers', slug: 'fertilizers', icon: '' },
+  '9': { id: '9', name: 'Cattle Feed', slug: 'cattle-feed', icon: '' },
+  '10': { id: '10', name: 'Services', slug: 'services', icon: '' },
+};
 const IMG = (filename: string) => `/images/${encodeURIComponent(filename)}`;
 
 // Map listing title to image filename (for listings without exact match, use closest available)
@@ -39,7 +53,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '1',
     title: 'Organic Paddy Rice - Vellore',
-    category: { id: '1', name: 'Farm Produce', slug: 'farm-produce', icon: '' },
+    category: CATEGORIES['1'],
     quantity: 5000,
     unit: 'kg',
     price: 28,
@@ -55,7 +69,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '2',
     title: 'Fresh Groundnut - Kanchipuram',
-    category: { id: '1', name: 'Farm Produce', slug: 'farm-produce', icon: '' },
+    category: CATEGORIES['1'],
     quantity: 1000,
     unit: 'kg',
     price: 85,
@@ -72,7 +86,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '3',
     title: 'Organic Tomato - Kanchipuram',
-    category: { id: '2', name: 'Vegetables', slug: 'vegetables', icon: '' },
+    category: CATEGORIES['2'],
     quantity: 500,
     unit: 'kg',
     price: 28,
@@ -88,7 +102,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '4',
     title: 'Fresh Onion - Villupuram',
-    category: { id: '2', name: 'Vegetables', slug: 'vegetables', icon: '' },
+    category: CATEGORIES['2'],
     quantity: 2000,
     unit: 'kg',
     price: 22,
@@ -104,7 +118,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '5',
     title: 'Lady Finger - Chengalpattu',
-    category: { id: '2', name: 'Vegetables', slug: 'vegetables', icon: '' },
+    category: CATEGORIES['2'],
     quantity: 300,
     unit: 'kg',
     price: 35,
@@ -121,7 +135,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '6',
     title: 'Fresh Banana Bunch - Thiruvallur',
-    category: { id: '3', name: 'Fruits', slug: 'fruits', icon: '' },
+    category: CATEGORIES['3'],
     quantity: 100,
     unit: 'bunch',
     price: 45,
@@ -137,7 +151,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '7',
     title: 'Mango Alphonso - Krishnagiri',
-    category: { id: '3', name: 'Fruits', slug: 'fruits', icon: '' },
+    category: CATEGORIES['3'],
     quantity: 500,
     unit: 'kg',
     price: 120,
@@ -153,7 +167,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '8',
     title: 'Coconut - Chengalpattu',
-    category: { id: '3', name: 'Fruits', slug: 'fruits', icon: '' },
+    category: CATEGORIES['3'],
     quantity: 1000,
     unit: 'piece',
     price: 15,
@@ -170,7 +184,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '9',
     title: 'Jasmine Flowers - Tiruvannamalai',
-    category: { id: '4', name: 'Flowers', slug: 'flowers', icon: '' },
+    category: CATEGORIES['4'],
     quantity: 50,
     unit: 'kg',
     price: 350,
@@ -186,7 +200,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '10',
     title: 'Marigold - Chennai',
-    category: { id: '4', name: 'Flowers', slug: 'flowers', icon: '' },
+    category: CATEGORIES['4'],
     quantity: 200,
     unit: 'kg',
     price: 80,
@@ -203,7 +217,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '11',
     title: 'Native Breed Cows - Vellore',
-    category: { id: '5', name: 'Livestock', slug: 'livestock', icon: '' },
+    category: CATEGORIES['5'],
     quantity: 2,
     unit: 'piece',
     price: 45000,
@@ -219,7 +233,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '12',
     title: 'Goat Kids - Tiruvannamalai',
-    category: { id: '5', name: 'Livestock', slug: 'livestock', icon: '' },
+    category: CATEGORIES['5'],
     quantity: 5,
     unit: 'piece',
     price: 8000,
@@ -236,7 +250,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '13',
     title: 'Buffalo Milk - Vellore',
-    category: { id: '6', name: 'Dairy', slug: 'dairy', icon: '' },
+    category: CATEGORIES['6'],
     quantity: 200,
     unit: 'L',
     price: 55,
@@ -252,7 +266,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '14',
     title: 'Fresh Curd - Kanchipuram',
-    category: { id: '6', name: 'Dairy', slug: 'dairy', icon: '' },
+    category: CATEGORIES['6'],
     quantity: 50,
     unit: 'kg',
     price: 80,
@@ -269,7 +283,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '15',
     title: 'Tractor for Rent - Kanchipuram',
-    category: { id: '7', name: 'Equipment', slug: 'equipment', icon: '' },
+    category: CATEGORIES['7'],
     quantity: 1,
     unit: 'day',
     price: 2500,
@@ -285,7 +299,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '16',
     title: 'Harvester Machine - Vellore',
-    category: { id: '7', name: 'Equipment', slug: 'equipment', icon: '' },
+    category: CATEGORIES['7'],
     quantity: 1,
     unit: 'acre',
     price: 3500,
@@ -301,7 +315,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '17',
     title: 'Spray Pump - Tiruvannamalai',
-    category: { id: '7', name: 'Equipment', slug: 'equipment', icon: '' },
+    category: CATEGORIES['7'],
     quantity: 2,
     unit: 'piece',
     price: 4500,
@@ -318,7 +332,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '18',
     title: 'Organic Compost - Kanchipuram',
-    category: { id: '8', name: 'Fertilizers', slug: 'fertilizers', icon: '' },
+    category: CATEGORIES['8'],
     quantity: 500,
     unit: 'kg',
     price: 8,
@@ -334,7 +348,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '19',
     title: 'NPK Fertilizer - Chennai',
-    category: { id: '8', name: 'Fertilizers', slug: 'fertilizers', icon: '' },
+    category: CATEGORIES['8'],
     quantity: 50,
     unit: 'kg',
     price: 350,
@@ -350,7 +364,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '20',
     title: 'Neem Oil Pesticide - Tiruvannamalai',
-    category: { id: '8', name: 'Fertilizers', slug: 'fertilizers', icon: '' },
+    category: CATEGORIES['8'],
     quantity: 5,
     unit: 'L',
     price: 450,
@@ -367,7 +381,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '21',
     title: 'Cattle Feed Pellets - Kanchipuram',
-    category: { id: '9', name: 'Cattle Feed', slug: 'cattle-feed', icon: '' },
+    category: CATEGORIES['9'],
     quantity: 500,
     unit: 'kg',
     price: 28,
@@ -383,7 +397,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '22',
     title: 'Hay & Fodder - Vellore',
-    category: { id: '9', name: 'Cattle Feed', slug: 'cattle-feed', icon: '' },
+    category: CATEGORIES['9'],
     quantity: 1000,
     unit: 'kg',
     price: 12,
@@ -400,7 +414,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '23',
     title: 'Tractor Ploughing Service - Kanchipuram',
-    category: { id: '10', name: 'Services', slug: 'services', icon: '' },
+    category: CATEGORIES['10'],
     quantity: 1,
     unit: 'acre',
     price: 3500,
@@ -416,7 +430,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '24',
     title: 'Crop Spraying Service - Chengalpattu',
-    category: { id: '10', name: 'Services', slug: 'services', icon: '' },
+    category: CATEGORIES['10'],
     quantity: 1,
     unit: 'acre',
     price: 1200,
@@ -432,7 +446,7 @@ export const MOCK_LISTINGS: Partial<Listing>[] = [
   {
     id: '25',
     title: 'Harvesting Service - Vellore',
-    category: { id: '10', name: 'Services', slug: 'services', icon: '' },
+    category: CATEGORIES['10'],
     quantity: 1,
     unit: 'acre',
     price: 4000,
